@@ -33,6 +33,8 @@ class ViewController: UIViewController {
         button2.layer.borderColor = UIColor.lightGray.cgColor
         button3.layer.borderColor = UIColor.lightGray.cgColor
         
+        navigationItem.rightBarButtonItem = UIBarButtonItem(barButtonSystemItem: .action, target: self, action: #selector(shareTapped))
+        
         askQuestion()
     }
 
@@ -78,5 +80,14 @@ class ViewController: UIViewController {
         present(ac, animated: true)
         
     }
+    
+    @objc func shareTapped() {
+        let message = "Your score is \(score)"
+        
+        let vc = UIActivityViewController(activityItems: [message], applicationActivities: nil)
+        vc.popoverPresentationController?.barButtonItem = navigationItem.rightBarButtonItem
+        present(vc, animated: true)
+    }
+    
 }
 
