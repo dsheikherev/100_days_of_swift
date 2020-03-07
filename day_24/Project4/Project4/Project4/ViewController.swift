@@ -76,19 +76,32 @@ class ViewController: UIViewController, WKNavigationDelegate {
     func webView(_ webView: WKWebView, didFinish navigation: WKNavigation!) {
         title = webView.title
     
-                
-        if !(toolbarItems?.contains(goBack!))! {
-            if webView.backForwardList.backList.count > 0 {
+        if webView.backForwardList.forwardList.count > 0 {
+            if !(toolbarItems!.contains(goForward!)) {
+                var i = 0
+                if (toolbarItems!.contains(goBack!)) {
+                    i += 1
+                }
+                toolbarItems!.insert(goForward!, at: i)
+            }
+        } else {
+            if (toolbarItems!.contains(goForward!)) {
+                let i = toolbarItems!.firstIndex(of: goForward!)!
+                toolbarItems!.remove(at: i)
+            }
+        }
+        
+        if webView.backForwardList.backList.count > 0 {
+            if !(toolbarItems!.contains(goBack!)) {
                 toolbarItems?.insert(goBack!, at: 0)
             }
-        }
-        
-        if !(toolbarItems?.contains(goForward!))! {
-            if webView.backForwardList.forwardList.count > 0 {
-                toolbarItems?.insert(goForward!, at: 1)
+        } else {
+            if (toolbarItems!.contains(goBack!)) {
+                let i = toolbarItems!.firstIndex(of: goBack!)!
+                toolbarItems!.remove(at: i)
             }
         }
-        
+
     }
     
     func webView(_ webView: WKWebView, decidePolicyFor navigationAction: WKNavigationAction, decisionHandler: @escaping (WKNavigationActionPolicy) -> Void) {
@@ -103,11 +116,11 @@ class ViewController: UIViewController, WKNavigationDelegate {
             }
         }
         
-        let ac = UIAlertController(title: "Forbidden", message: "It's blocked web-site", preferredStyle: .alert)
-        ac.addAction(UIAlertAction(title: "Cancel", style: .cancel, handler: { action in
+//        let ac = UIAlertController(title: "Forbidden", message: "It's blocked web-site", preferredStyle: .alert)
+//        ac.addAction(UIAlertAction(title: "Cancel", style: .cancel, handler: { action in
             decisionHandler(.cancel)
-        }))
-        present(ac, animated: true)
+//        }))
+//        present(ac, animated: true)
     }
 }
 
