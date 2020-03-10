@@ -114,13 +114,11 @@ class ViewController: UIViewController, WKNavigationDelegate {
                     return
                 }
             }
+            let ac = UIAlertController(title: "Forbidden", message: "It's blocked website", preferredStyle: .alert)
+            ac.addAction(UIAlertAction(title: "Cancel", style: .cancel, handler: nil))
+            present(ac, animated: true)
         }
-        
-//        let ac = UIAlertController(title: "Forbidden", message: "It's blocked web-site", preferredStyle: .alert)
-//        ac.addAction(UIAlertAction(title: "Cancel", style: .cancel, handler: { action in
-            decisionHandler(.cancel)
-//        }))
-//        present(ac, animated: true)
+        decisionHandler(.cancel)
     }
 }
 
