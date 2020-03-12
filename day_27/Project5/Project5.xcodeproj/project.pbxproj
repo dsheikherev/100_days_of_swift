@@ -13,6 +13,7 @@
 		EF82E3732417E5C200B40F42 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = EF82E3712417E5C200B40F42 /* Main.storyboard */; };
 		EF82E3752417E5C300B40F42 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = EF82E3742417E5C300B40F42 /* Assets.xcassets */; };
 		EF82E3782417E5C300B40F42 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = EF82E3762417E5C300B40F42 /* LaunchScreen.storyboard */; };
+		EF82E3802418CAC600B40F42 /* start.txt in Resources */ = {isa = PBXBuildFile; fileRef = EF82E37F2418CAC600B40F42 /* start.txt */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -24,6 +25,7 @@
 		EF82E3742417E5C300B40F42 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		EF82E3772417E5C300B40F42 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		EF82E3792417E5C300B40F42 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		EF82E37F2418CAC600B40F42 /* start.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = start.txt; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -56,6 +58,7 @@
 		EF82E36A2417E5C200B40F42 /* Project5 */ = {
 			isa = PBXGroup;
 			children = (
+				EF82E37F2418CAC600B40F42 /* start.txt */,
 				EF82E36B2417E5C200B40F42 /* AppDelegate.swift */,
 				EF82E36D2417E5C200B40F42 /* SceneDelegate.swift */,
 				EF82E36F2417E5C200B40F42 /* ViewController.swift */,
@@ -126,6 +129,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				EF82E3782417E5C300B40F42 /* LaunchScreen.storyboard in Resources */,
+				EF82E3802418CAC600B40F42 /* start.txt in Resources */,
 				EF82E3752417E5C300B40F42 /* Assets.xcassets in Resources */,
 				EF82E3732417E5C200B40F42 /* Main.storyboard in Resources */,
 			);
