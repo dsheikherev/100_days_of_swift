@@ -17,10 +17,21 @@ class ViewController: UIViewController {
     var countries: [String] = []
     var correctAnswer = 0
     var score = 0
+    var highestScore = 0
     var totalAnsweredQs = 0
+    
+    func loadFromDefaults() {
+        highestScore = UserDefaults.standard.integer(forKey: "highestScore")
+    }
+    
+    func saveToDefaults() {
+        UserDefaults.standard.set(highestScore, forKey: "highestScore")
+    }
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        loadFromDefaults()
         
         // Do any additional setup after loading the view.
         countries += ["estonia", "france", "germany", "ireland", "italy", "monaco", "nigeria", "poland", "russia", "spain", "uk", "us"]
@@ -66,8 +77,15 @@ class ViewController: UIViewController {
         totalAnsweredQs += 1
                 
         if totalAnsweredQs == 10 {
-            title = "Game Over!"
-            message = "Your final score is \(score)"
+            if score > highestScore {
+                title = "Congrats!"
+                message = "\(score) is a new record!"
+                highestScore = score
+                saveToDefaults()
+            } else {
+                title = "Game Over!"
+                message = "Your final score is \(score)"
+            }
             buttonText = "Restart"
             totalAnsweredQs = 0
             score = 0
@@ -78,7 +96,6 @@ class ViewController: UIViewController {
         let ac = UIAlertController(title: title, message: message, preferredStyle: .alert)
         ac.addAction(UIAlertAction(title: buttonText, style: .default, handler: askQuestion))
         present(ac, animated: true)
-        
     }
     
     @objc func shareTapped() {
